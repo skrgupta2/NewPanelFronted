@@ -1,0 +1,32 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="newsForm">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> E-mail
+        </mat-label>
+        <mat-form-field class="example-full-width">
+          <input type="number" matInput placeholder="ReporterId" value="0"
+          ngModel name="ReporterId">
+        </mat-form-field>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="newsForm.controls['email'].touched && newsForm.controls['email'].invalid">
+          <span *ngIf="newsForm.controls['email'].errors?.['required']">This field is mandatory.</span>
+          <span *ngIf="newsForm.controls['email'].errors?.['pattern']">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Password
+        </mat-label>
+
+        <input matInput formControlName="password" type="password">
+        <mat-error *ngIf="newsForm.controls['password'].touched && newsForm.controls['password'].invalid">
+          <span *ngIf="newsForm.controls['password'].errors?.['required']">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+
+      <button mat-raised-button color="primary" type="submit">Log In</button>
+    </form>
+  </div>
+</div>
